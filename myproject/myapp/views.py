@@ -8,6 +8,9 @@ def home(request):
 def second(request):
     return render(request, 'second.html')
 
+def imagepage(request):
+    return render(request, 'imagepage.html')
+
 def add(request, a, b):
     sum = a + b 
     return HttpResponse(sum)

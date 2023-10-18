@@ -1,0 +1,9 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block title %}image page{% endblock title %}
+
+{% block content %}
+my image page
+<img src="{% static "/planet9.jpg" %}" class="img-fluid" alt="...">
+{% endblock content %}

@@ -5,6 +5,9 @@ from django.http import HttpResponse, JsonResponse
 def home(request):
     return render(request, 'index.html')
 
+def second(request):
+    return render(request, 'second.html')
+
 def add(request, a, b):
     sum = a + b 
     return HttpResponse(sum)

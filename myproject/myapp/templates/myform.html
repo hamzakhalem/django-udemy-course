@@ -1,0 +1,28 @@
+{% extends "index.html" %}
+
+{% block title %}myform{% endblock title %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <h1 style="margin: 1rem auto; text-align:center">Form</h1>
+        <div class="col-md-6" style="margin: 0 auto">
+            <form method="post" action='{% url "submitform" %}'>
+                {% csrf_token %}
+                <div class="mb-3" >
+                    <label for="mytext" class="form-label">Email address</label>
+                    <input type="text" class="form-control" id="mytext" aria-describedby="emailHelp" name="mytext">
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3" >
+                    <label for="mytextarea" class="form-label">Example textarea</label>
+                    <textarea class="form-control" id="mytextarea" rows="3" name="mytextarea"></textarea>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary mb-3">Submit</button>
+                  </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

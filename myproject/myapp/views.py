@@ -11,6 +11,17 @@ def second(request):
 def imagepage(request):
     return render(request, 'imagepage.html')
 
+def myform(request):
+    return render(request, 'myform.html')
+
+def submitform(request):
+    if(request.method == "POST"):
+        mytext = request.POST['mytext']
+        mytextarea = request.POST['mytextarea']
+        print(mytext)
+        print(mytextarea)
+    return render(request, 'myform.html')
+
 def add(request, a, b):
     sum = a + b 
     return HttpResponse(sum)

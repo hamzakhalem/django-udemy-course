@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
-
+from .forms import newForm
 # Create your views here.
 def home(request):
     return render(request, 'index.html')
@@ -13,6 +13,30 @@ def imagepage(request):
 
 def myform(request):
     return render(request, 'myform.html')
+
+def error(request, exception):
+    print("inside")
+    return render(request, '404page.html')
+
+def newform(request):
+    if(request.method == "POST"):
+        form = newForm(request.POST)
+        if form.is_valid():
+            title = request.POST['title']
+            subject = request.POST['subject']
+            print(title)
+            print(subject)
+            form = newForm()
+            context = {'form':form, 'success': True, 'successmsg': "sucess" }
+            return render(request, 'newform.html', context=context) 
+        else:
+            form = newForm()
+            context = {'form':form, 'success': False, 'successmsg': "error" }
+            return render(request, 'newform.html', context={'form':form})
+    elif(request.method == "GET"):
+        form = newForm()
+        return render(request, 'newform.html', context={'form':form})
+    
 
 def submitform(request):
     if(request.method == "POST"):

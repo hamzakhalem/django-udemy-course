@@ -7,4 +7,5 @@ urlpatterns = [
     path('second/', views.second, name="second"),
     path('myform/', views.myform, name="myform"),
     path('submitform/', views.submitform, name="submitform"),
+    path('newform/', views.newform, name="newform"),
 ]

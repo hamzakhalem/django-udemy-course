@@ -1,0 +1,31 @@
+{% extends "index.html" %}
+
+{% block title %}second page{% endblock title %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        {% if success == True  %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{successmsg}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        {% elif success and success == False %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{successmsg}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        {% endif %}
+        <h1 style="margin: 1rem auto; text-align:center">Form</h1>
+        <div class="col-md-6" style="margin: 0 auto">
+            <form method="post">
+                {% csrf_token %}
+                {{form.as_p}}
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary mb-3">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
